@@ -1,7 +1,7 @@
 var config = {
   basePath: '/bws/api',
   disableLogs: false,
-  port: 3232,
+  port: process.env.BWS_PORT ||  3232,
 
   // Uncomment to make BWS a forking server
   // cluster: true,
@@ -21,20 +21,20 @@ var config = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://localhost:27017/bws',
+      uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/bws',
     },
   },
   lockOpts: {
     //  To use locker-server, uncomment this:
     lockerServer: {
-      host: 'localhost',
-      port: 3231,
+      host: process.env.LOCKER_SERVER ||  'locker',
+      port: process.env.LOCKER_SERVER_PORT || 3231,
     },
   },
   messageBrokerOpts: {
     //  To use message broker server, uncomment this:
     messageBrokerServer: {
-      url: 'http://localhost:3380',
+      url: process.env.MESSAGEBROKER_URI || 'http://messagebroker:3380',
     },
   },
   blockchainExplorerOpts: {
@@ -60,7 +60,7 @@ var config = {
     defaultUnit: 'btc',
     subjectPrefix: '',
     pushServerUrl: 'https://fcm.googleapis.com/fcm',
-    authorizationKey: '',
+    authorizationKey: process.env.PUSH_AUTHORIZATIONKEY || 'asd',
   },
   fiatRateServiceOpts: {
     defaultProvider: 'BitPay',
