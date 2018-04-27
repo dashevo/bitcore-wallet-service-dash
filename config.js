@@ -27,14 +27,14 @@ var config = {
   lockOpts: {
     //  To use locker-server, uncomment this:
     lockerServer: {
-      host: process.env.LOCKER_SERVER ||  'locker',
+      host: process.env.LOCKER_SERVER ||  'localhost',
       port: process.env.LOCKER_SERVER_PORT || 3231,
     },
   },
   messageBrokerOpts: {
     //  To use message broker server, uncomment this:
     messageBrokerServer: {
-      url: process.env.MESSAGEBROKER_URI || 'http://messagebroker:3380',
+      url: process.env.MESSAGEBROKER_URI || 'http://localhost:3380',
     },
   },
   blockchainExplorerOpts: {
